@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{asset ('images/logo.png')}}">
+        <link href="https://bootswatch.com/5/lux/bootstrap.css" rel="stylesheet">
+
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+    </head>
+
+    {% include('_layout/navbar.html.twig') %}
+
+
+    <body style='background-color:#92BDDB; @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville &display=swap");font-family: "Libre Baskerville", serif;'> {% block body %}{% endblock %}
+
+
+
+
+
+    </body>
+
+
+    {% block footer%}
+        <footer class="fixed-bottom">
+            <section>
+                <div class="container-fluid">
+                    <div class="row gy-5">
+                        <div class="col-12 col-md-3 bg-dark w-100">
+                            <a class="text-light" href="https://www.linkedin.com/in/valentin-scottez-214780255/" target="_blank">2023 ACME©</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    {% endblock %}
+
+
+</html>

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{%  block body %}
+
+<style>
+    .body {
+        height: 100%
+    }
+    .gauche {
+        position: absolute;
+        margin-left: 0;
+        width: 60%;
+        height: 89.7%;
+    }
+    .droite {
+        position: absolute;
+        margin-left: 60%;
+        width: 40%;
+        height: 89.7%;
+    }
+    .titreg {
+        font-size: 500%;
+        color: #27476E;
+    }
+    p {
+        color: black;
+        margin-bottom: -2%;
+        font-size: 200%;
+        font-weight: 200;
+    }
+    .background_carousel {
+        padding-top: 4%;
+        background-color: white;
+        width: 90%;
+        height: 90%;
+        margin-top: 5%;
+        margin-left: 5%;
+        border-radius: 5%
+    }
+    .backgroun_shoes {
+        background-color: #92BDDB;
+        width: 90%;
+        height: 70%;
+        border-radius: 5%;
+        position: relative;
+        margin-left: 5%;
+    }
+    .texte {
+        margin-left: 20%;
+        margin-top: 20%
+    }
+</style>
+<div class="gauche">
+    <div class="texte">
+        <h1 class="titreg">A C M E</h1>
+        <p>LE LUXE DE PORTER DU</p>
+        </br>
+        <p>STREETWEAR.</p>
+    </div>
+</div>
+<div class="droite">
+    <div class="background_carousel">
+        <div class="backgroun_shoes"><img style="margin-left:-45%;margin-top: -10%; width:150%" src="{{asset ('images/chaussure_accueil1.png')}}"></div>
+    </div>
+</div>
+
+{% endblock %}
