@@ -4,4 +4,7 @@
 
 {% block body %}
 {{ form(formNouvelleInscription) }}
+    {% for message in app.flashes('success') %}
+    <p>{{ message }}</p>
+    {% endfor %}
 {% endblock %}
