@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>Tu n'as pas encore de Compte ?</br>Inscris-toi !</h1>
+
+{{form_start(form)}}
+{{form_row(form.username, {'label':'Nom de famille' ,'attr':{'placeholder': 'Nom de famille'}})}}
+{{form_row(form.Email, {'label':'Adresse email Epsi' ,'attr':{'placeholder': 'Adresse email epsi'}})}}
+{{form_row(form.Adresse, {'label':'Adresse postale' ,'attr':{'placeholder': 'Adresse postale'}})}}
+{{form_row(form.Ville, {'label':'Ville' ,'attr':{'placeholder': 'Ville'}})}}
+{{form_row(form.Pays, {'label':'Pays' ,'attr':{'placeholder': 'Pays'}})}}
+{{form_row(form.Password, {'label':'Mot de passe' ,'attr':{'placeholder': 'Mot de passe'}})}}
+
+<button type="submit" class="btn btn-success">Confirmer</button>
+{{form_end(form)}}{% endblock %}

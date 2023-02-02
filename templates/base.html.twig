@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{asset ('assets/images/logo.png')}}">
+		<link
+		href="https://bootswatch.com/5/lux/bootstrap.css" rel="stylesheet">
+
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+
+	</head>
+	{% include('_layout/navbar.html.twig') %}
+	<body style='background-color:#92BDDB; @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville &display=swap");font-family: "Libre Baskerville", serif;'> {% block body %}{% endblock %}
+		</body>
+
+		{% include('_layout/footer.html.twig') %}
+	</html>
