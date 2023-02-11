@@ -1,40 +1,139 @@
-<nav style="background-color:#27476E; height: 80px" class="navbar navbar-expand-lg">
-	<div class="container-fluid">
-		{% if not app.user %}
-			<a class="navbar-brand" href="/"><img style="width:100px" src="{{asset ('assets/images/logo.png')}}"></a>
-		{% else %}
-			<a class="navbar-brand" href="app_accueil_shop"><img style="width:100px" src="{{asset ('assets/images/logo.png')}}"></a>
-		{% endif %}
-		<div class="collapse navbar-collapse" id="navbarColor02">
-			<ul class="navbar-nav me-auto">
+<style>
+	nav {
+		overflow: hidden;
+		height: 80px;
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		background-color: #27476E;
+	}
+	.navbar-brand img {
+		width: 100px;
+	}
+	@media(max-width: 991.5px) {
+		nav {
+			background-color: #92BDDB;
+		}
+		.navbar-brand img {
+			max-width: 50px;
+			max-height: 50px;
+			content: url({{asset('assets/images/burger.png')}});
 
-				{% if not app.user %}
-					<li class="nav-item">
-						<a href="{{ path('security_connexion') }}" class="nav-link">
-							<button style="background-color:#27476E; margin-left:50%;text-transform: none; color:white;" class="btn btn-success my-2 my-sm-0">
-								Connexion
-							</button>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="inscription" class="nav-link">
-							<button style="background-color:#27476E; margin-left:50%;text-transform: none; color:white;" class=" btn --bs-btn-color: #fff;">
-								Inscription
-							</button>
-						</a>
-					</li>
-				{% else %}
-					<li class="nav-item">
-						<a href="{{ path('security_deconnexion') }}" class="nav-link">
-							<button style="background-color:#27476E; margin-left:50%;text-transform: none; color:white;" class=" btn --bs-btn-color: #fff;">
-								Déconnexion
-							</button>
-						</a>
-					</li>
-				{% endif %}
+		}
 
+	}
+	.show-navbar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #1E2E45;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+	}
+	.hide-navbar {
+		display: none;
+	}
+	.close-navbar-button {
+		width: 100px;
+		background-color: #1E2E45;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		top: 4%;
+		left: -2%;
+	}
+	.burger2 {
+		width: 50%
+	}
+	.centre {
+		text-align: center;
+		list-style-type: none;
+	}
+	ul {
+		list-style-type: none;
+	}
+	.boutons_nav {
+		color: white;
+		text-decoration: none;
+		font-size: 200%;
+	}
+</style>
 
-			</ul>
+<body>
+	<nav class="navbar navbar-expand-lg">
+		<div class="container-fluid">
+			{% if not app.user %}
+				<a class="navbar-brand" href="/" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('assets/images/acme.png')}}"></a>
+
+			{% else %}
+				<a class="navbar-brand" href="/" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('assets/images/acme.png')}}"></a>
+			{% endif %}
+			<div class="collapse navbar-collapse" id="navbarColor02">
+				<ul class="navbar-nav ml-auto" style="margin-left :70%">
+					{% if not app.user %}
+						<li class="nav-item">
+							<a href="{{ path('security_connexion') }}" class="nav-link">
+								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+									Connexion
+								</button>
+
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ path('security_inscription') }}" class="nav-link">
+								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+									Inscription
+								</button>
+
+							</a>
+						</li>
+					{% else %}
+						<li class="nav-item">
+							<a href="{{ path('security_deconnexion') }}" class="nav-link">
+								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
+
+									Déconnexion
+								</button>
+							</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
+
+	<div class="show-navbar hide-navbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+
+					<button class="close-navbar-button" onclick="toggleNavbar();"><img class="burger2" src="{{asset ('assets/images/burger2.png')}}"></button>
+					<div class="centre">
+						<ul>
+							{% if not app.user %}
+								<li>
+									<a class="boutons_nav" href="{{ path('accueil') }}">A c c u e i l</a>
+								</li>
+							</br>
+						</li>
+						<li>
+							<div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div>
+						</li>
+					</br>
+					<li>
+						<a class="boutons_nav" href="{{ path('security_connexion') }}">C o n n e x i o n</a>
+					</li>
+				</br>
+			</li>
+			<li>
+				<div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div>
+			</li>
+		</br>
+	</body>
+</body></li><li>
+<a class="boutons_nav" href="{{ path('security_inscription') }}">I n s c r i p t i o n</a></li>{% else %}<li>
+<a class="boutons_nav" href="{{ path('security_deconnexion') }}">D é c o n n e x i o n</a></li>{% endif %}</body></ul></div></body></div></div></div> </body></body></div><script src="{{ asset ('js/navbar.js') }}"></script></body>

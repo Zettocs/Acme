@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Accueil
 {% endblock %}
 
@@ -24,7 +25,7 @@
 			font-size: 500%;
 			color: #27476E;
 		}
-		p {
+		.p1 {
 			color: black;
 			margin-bottom: -2%;
 			font-size: 200%;
@@ -49,19 +50,61 @@
 		}
 		.texte {
 			margin-left: 20%;
-			margin-top: 20%
+			margin-top: 20%;
+		}
+		.image {
+			margin-left: -45%;
+			margin-top: -10%;
+			width: 150%
+		}
+		@media(max-width: 720px) {
+			.droite {
+				margin: 0 auto;
+				width: 100%;
+				position: absolute;
+			}
+			.gauche {
+				margin-left: ;
+				text-align: center;
+				width: 100%;
+			}
+			.background_carousel {
+				height: 65%;
+				margin-top: 47%;
+				width: 75%;
+				margin-left: 12%;
+			}
+			.texte {
+				margin-left: 0;
+			}
+			.image {
+				margin-left: -15%;
+				margin-top: 5%;
+				width: 120%
+			}
+			.titreg {
+				font-size: 400%;
+				margin-top: -10%;
+			}
+			.p1 {
+				font-size: 100%;
+			}
+			.backgroun_shoes {
+				height: 80%;
+				margin-left: 5%;
+			}
 		}
 	</style>
 	<div class="gauche">
 		<div class="texte">
 			<h1 class="titreg">A C M E</h1>
-			<p>LE LUXE DE PORTER DU</p>
+			<p class="p1">LE LUXE DE PORTER DU</p>
 		</br>
-		<p>STREETWEAR.</p>
+		<p class="p1">STREETWEAR.</p>
 	</div>
 </div>
 <div class="droite">
 	<div class="background_carousel">
-		<div class="backgroun_shoes"><img style="margin-left:-45%;margin-top: -10%; width:150%" src="{{asset ('assets/images/chaussure_accueil1.png')}}"></div>
+		<div class="backgroun_shoes"><img class="image" src="{{asset ('assets/images/chaussure_accueil1.png')}}"></div>
 	</div>
 </div>{% endblock %}
