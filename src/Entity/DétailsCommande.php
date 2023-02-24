@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBundle;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -43,6 +43,4 @@ class DétailsCommande
      * @ORM\Column(name="Remise", type="float", precision=10, scale=0, nullable=true)
      */
     private $remise;
-
-
 }

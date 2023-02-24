@@ -5,11 +5,14 @@
 
 {{form_start(form)}}
 {{form_row(form.username, {'label':'Nom de famille' ,'attr':{'placeholder': 'Nom de famille'}})}}
+{{form_row(form.firstname, {'label':'Prénom' ,'attr':{'placeholder': 'Prénom'}})}}
 {{form_row(form.Email, {'label':'Adresse email' ,'attr':{'placeholder': 'Adresse email'}})}}
 {{form_row(form.Adresse, {'label':'Adresse postale' ,'attr':{'placeholder': 'Adresse postale'}})}}
 {{form_row(form.Ville, {'label':'Ville' ,'attr':{'placeholder': 'Ville'}})}}
 {{form_row(form.Pays, {'label':'Pays' ,'attr':{'placeholder': 'Pays'}})}}
 {{form_row(form.Password, {'label':'Mot de passe' ,'attr':{'placeholder': 'Mot de passe'}})}}
+{{form_row(form.PasswordVerification, {'label':'Vérification du mot de passe' ,'attr':{'placeholder': 'Vérification du mot de passe'}})}}
+
 
 <button type="submit" class="btn btn-success">Confirmer</button>
 {{form_end(form)}}{% endblock %}

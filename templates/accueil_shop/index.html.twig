@@ -1,27 +1,209 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
+
 	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
+		.bandeau {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 150px;
+			background-color: white;
 		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
+
+		h1 {
+			color: #27476E;
+			text-align: center;
+			text-transform: none;
+			font-size: 300%;
+		}
+
+		.chaussures {
+			width: 100%;
+			background-color: white;
+			border-radius: 30px
+		}
+
+		.test {
+			width: 100%;
+			height: 50%;
+		}
+
+		.catalogue-wrapper {
+			position: relative;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 100px;
+			margin: 5% 0 5% 4%;
+		}
+
+
+		.produit-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 30px;
+			background-color: white;
+			width: 80%;
+			height: 300px;
+			color: #27476E;
+		}
+
+		.produit-wrapper h2 {
+			margin-top: 5%;
+			text-transform: none;
+			font-size: 100%;
+			text-align: center;
+			color: #27476E;
+		}
+
+		.produit-wrapper .nom {
+			height: 5%;
+			width: 100%;
+			font-size: 70%;
+		}
+
+		.produit-wrapper .prix {
+			font-size: 120%;
+			font-weight: bold;
+		}
+
+
+		.produit-wrapper .reference {
+			height: 5%;
+			font-size: 70%;
+		}
+
+		.produit-wrapper button {
+			margin-bottom: 2%;
+			background-color: #27476E;
+			color: white;
+			border: none;
+			border-radius: 30px;
+			width: 90%;
+			height: 40px;
+		}
+
+		.produit-wrapper a {
+			color: white;
+			text-decoration: none;
+		}
+
+
+		.pagination {
+			position: fixed;
+			bottom: 2%;
+			left: 0;
+			right: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px 0;
+		}
+
+		.pagination a,
+		.pagination span {
+			text-decoration: none;
+			color: #27476E;
+			margin: 0 10px;
+			border: none;
+			background-color: transparent;
+			outline: none;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		.pagination .current {
+			color: white;
+			background-color: #27476E;
+			border-radius: 50%;
+			width: 30px;
+			height: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+
+		/* Barre de défilement */
+		::-webkit-scrollbar {
+			width: 12px;
+		}
+
+		/* Flèche bouton de défilement */
+		::-webkit-scrollbar-button {
+			background-color: #27476E;
+		}
+
+		/* Piste de la scrollbar */
+		::-webkit-scrollbar-track {
+			background-color: #27476E;
+		}
+
+		/* Thumb (barre de défilement) */
+		::-webkit-scrollbar-thumb {
+			background-color: white;
+			border-radius: 5px;
+		}
+
+		/* Thumb-hover (barre de défilement au survol) */
+		::-webkit-scrollbar-thumb:hover {
+			background-color: #555;
 		}
 	</style>
 
-	<div class="example-wrapper">
-		<h1>Bonjour
-			{{ app.user.username }}
-			!</h1>
-	</br>
+	<div class="bandeau">
+		<h1>Collection glace</h1>
+	</div>
 
 
-	<p>Page de catalogue en gros
-	</p>
-</br>{% endblock %}
+	<div class="catalogue-wrapper">
+
+		{% for produit in pagination %}
+
+			<div class="produit-wrapper">
+
+
+				<div class="test">
+					<img class="chaussures" src="{{ asset('images/produits/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+				</div>
+				<h2 class="nom">{{ produit.nom }}</h2>
+
+				<p class="reference">Référence :
+					{{ produit.référence }}</p>
+
+				<p class="prix">{{ produit.prix }}€</p>
+
+				<button class="afficher-article">
+					<a href="{{ path('produit_detail', { 'id': produit.idproduit }) }}">En savoir plus</a>
+				</button>
+
+
+			</div>
+
+
+		{% endfor %}
+		{% if produits|length > 0 %}
+			<div class="pagination">
+				{% if page > 1 %}
+					<a href="{{ path('accueil_shop', { 'page': page - 1 }) }}">Précédent</a>
+				{% endif %}
+
+				{% for p in range(1, produits|length // 20 + 1) %}
+					{% if p == page %}
+						<span class="current">{{ p }}</span>
+					{% else %}
+						<a href="{{ path('accueil_shop', { 'page': p }) }}">{{ p }}</a>
+					{% endif %}
+				{% endfor %}
+
+				{% if page < produits|length // 20 + 1 %}
+					<a href="{{ path('accueil_shop', { 'page': page + 1 }) }}">Suivant</a>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+
+
+{% endblock %}

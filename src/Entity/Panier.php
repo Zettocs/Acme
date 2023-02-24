@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBundle;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,6 +34,4 @@ class Panier
      * @ORM\Column(name="IdUser", type="integer", nullable=false)
      */
     private $iduser;
-
-
 }

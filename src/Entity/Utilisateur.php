@@ -40,9 +40,24 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
     /**
      * @var string|null
      *
+     * @ORM\Column(name="firstname", type="string", length=150, nullable=true)
+     */
+    private $firstname;
+
+
+
+
+    /**
+     * @var string|null
+     *
      * @ORM\Column(name="password", type="string", length=300, nullable=true)
      */
     private $password;
+
+    /**
+     * @var string
+     */
+    private $passwordVerification;
 
     /**
      * @var string|null
@@ -167,5 +182,37 @@ class Utilisateur implements PasswordAuthenticatedUserInterface, UserInterface
     public function getUserIdentifier(): string
     {
         return $this->email;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordVerification(): string
+    {
+        return $this->passwordVerification;
+    }
+
+    /**
+     * @param string $passwordVerification
+     *
+     * @return Utilisateur
+     */
+    public function setPasswordVerification(string $passwordVerification): self
+    {
+        $this->passwordVerification = $passwordVerification;
+
+        return $this;
     }
 }

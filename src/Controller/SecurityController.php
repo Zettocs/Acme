@@ -39,10 +39,20 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $password = $form->get('Password')->getData();
+            $passwordVerification = $form->get('PasswordVerification')->getData();
+
+            if ($password !== $passwordVerification) {
+                $this->addFlash('danger', 'Les mots de passe ne correspondent pas');
+                return $this->redirectToRoute('security_inscription');
+            }
             $hash = $encoder->hashPassword($utilisateur, $utilisateur->getPassword());
+
             $utilisateur->setPassword($hash);
             $manager->persist($utilisateur);
             $manager->flush();
+
+
 
             return $this->redirectToRoute('security_connexion');
         }

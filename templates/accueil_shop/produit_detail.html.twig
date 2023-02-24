@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="test">
+		<img class="chaussures" src="{{ asset('images/produits/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+	</div>
+	<h2 class="nom">{{ produit.nom }}</h2>
+
+	<p class="reference">Référence :
+		{{ produit.référence }}</p>
+
+	<p class="prix">{{ produit.prix }}€</p>
+{% endblock %}

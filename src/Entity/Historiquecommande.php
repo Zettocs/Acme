@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBundle;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,6 +34,4 @@ class Historiquecommande
      * @ORM\Column(name="DateCommande", type="date", nullable=true)
      */
     private $datecommande;
-
-
 }

@@ -15,7 +15,9 @@ class InscriptionType extends AbstractType
         $builder
             ->add('Email')
             ->add('username')
+            ->add('firstname')
             ->add('Password', PasswordType::class)
+            ->add('PasswordVerification', PasswordType::class)
             ->add('Adresse')
             ->add('Ville')
             ->add('Pays');

@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBundle;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +29,4 @@ class Compose
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idcommande;
-
-
 }
