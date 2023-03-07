@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBundle;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -49,5 +49,56 @@ class Produit
      */
     private $photo;
 
+    public function getIdProduit(): ?int
+    {
+        return $this->idproduit;
+    }
 
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrix(): ?string
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?string $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getRéférence(): ?string
+    {
+        return $this->référence;
+    }
+
+    public function setRéférence(?string $référence): self
+    {
+        $this->référence = $référence;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
 }

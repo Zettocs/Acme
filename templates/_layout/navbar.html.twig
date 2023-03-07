@@ -17,7 +17,7 @@
 		.navbar-brand img {
 			max-width: 50px;
 			max-height: 50px;
-			content: url({{asset('assets/images/burger.png')}});
+			content: url({{asset('images/burger.png')}});
 
 		}
 
@@ -67,10 +67,10 @@
 	<nav class="navbar navbar-expand-lg">
 		<div class="container-fluid">
 			{% if not app.user %}
-				<a class="navbar-brand" href="/" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('assets/images/acme.png')}}"></a>
+				<a class="navbar-brand" href="/" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('images/acme.png')}}"></a>
 
 			{% else %}
-				<a class="navbar-brand" href="/" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('assets/images/acme.png')}}"></a>
+				<a class="navbar-brand" href="/shop" onclick="if (window.innerWidth > 991) { return true; } toggleNavbar(); return false;"><img style="width:100px" src="{{asset ('images/acme.png')}}"></a>
 			{% endif %}
 			<div class="collapse navbar-collapse" id="navbarColor02">
 				<ul class="navbar-nav ml-auto" style="margin-left :70%">
@@ -93,9 +93,15 @@
 						</li>
 					{% else %}
 						<li class="nav-item">
+							<a href="/panier" class="nav-link">
+								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:0%;">
+									Panier
+								</button>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="{{ path('security_deconnexion') }}" class="nav-link">
-								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E">
-
+								<button style="font-size: 150%; text-transform: none; color:white; display: inline-block; border:none; background-color:#27476E; margin-left:20%">
 									Déconnexion
 								</button>
 							</a>
@@ -111,7 +117,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 
-					<button class="close-navbar-button" onclick="toggleNavbar();"><img class="burger2" src="{{asset ('assets/images/burger2.png')}}"></button>
+					<button class="close-navbar-button" onclick="toggleNavbar();"><img class="burger2" src="{{asset ('images/burger2.png')}}"></button>
 					<div class="centre">
 						<ul>
 							{% if not app.user %}
@@ -136,4 +142,4 @@
 	</body>
 </body></li><li>
 <a class="boutons_nav" href="{{ path('security_inscription') }}">I n s c r i p t i o n</a></li>{% else %}<li>
-<a class="boutons_nav" href="{{ path('security_deconnexion') }}">D é c o n n e x i o n</a></li>{% endif %}</body></ul></div></body></div></div></div> </body></body></div><script src="{{ asset ('js/navbar.js') }}"></script></body>
+<a class="boutons_nav" href="{{ path('accueil_shop') }}">A c c u e i l</a></li></br></li><li><div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div></li></br><li><a class="boutons_nav" href="{{ path('panier') }}">P a n i e r</a></li></br></li><li><div style="background-color: white; width: 30%; height: 2px; display: inline-block;"></div></li></br><li><a class="boutons_nav" href="{{ path('security_deconnexion') }}">D é c o n n e x i o n</a></li>{% endif %}</body> </ul></div></body></div></div></div></body></body></div><script src="{{ asset ('js/navbar.js') }}"></script></body>

@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+	<style>
+	.article {
+		display : grid;
+		background-color: white;
+		justify-content: center;
+		width: 90%;
+		border-radius: 30px;
+		margin-top: 5%;
+		margin-left: 5%;
+		margin-bottom: 5%;
+	}
+	.bandeau {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 150px;
+			background-color: white;
+		}
+		h1 {
+			color: #27476E;
+			text-align: center;
+			text-transform: none;
+			font-size: 300%;
+		}
+		.chaussures {
+			width: 100%;
+			background-color: white;
+			border-radius: 30px
+		}
+		.test {
+			width: 100%;
+			height: 50%;
+		}
+	.catalogue-wrapper {
+			position: relative;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 100px;
+			margin: 5% 0 5% 4%;
+		}
+		.produit-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 30px;
+			background-color: white;
+			width: 80%;
+			height: 300px;
+			color: #27476E;
+		}
+		.produit-wrapper h2 {
+			margin-top: 5%;
+			text-transform: none;
+			font-size: 100%;
+			text-align: center;
+			color: #27476E;
+		}
+		.produit-wrapper .nom {
+			height: 5%;
+			width: 100%;
+			font-size: 70%;
+		}
+		.produit-wrapper .prix {
+			font-size: 120%;
+			font-weight: bold;
+		}
+		.produit-wrapper .reference {
+			height: 5%;
+			font-size: 70%;
+		}
+		.article button {
+			margin-bottom: 2%;
+			background-color: #27476E;
+			color: white;
+			border: none;
+			border-radius: 30px;
+			width: 90%;
+			height: 40px;
+		}
+		.produit-wrapper a {
+			color: white;
+			text-decoration: none;
+		}
+		#pointure {
+			margin-top: 2%;
+			margin-bottom: 5%;
+		}
+		.prix {
+			font-size: 2em;
+		}
+		
+	</style>
+
+	<div class="article">
+
+	<div class="test">
+		<img class="chaussures" src="{{ asset('images/produits/' ~ produit.photo) }}" alt="{{ produit.nom }}">
+	</div>
+	<h2 class="nom">{{ produit.nom }}</h2>
+
+	<p class="reference">Référence :
+		{{ produit.référence }}</p>
+
+	<p class="prix">{{ produit.prix }}€</p>
+
+	<label for="pointure">Choisissez une pointure</label>
+
+  		<select name="pointure" id="pointure">
+
+    		<optgroup label="Pointures">
+      			<option value="37">37</option>
+      			<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+    		</optgroup>
+
+  		</select>
+
+	<button class="afficher-article">
+					<a href="{{ path('produit_detail', { 'id': produit.idproduit }) }}">Ajouter au panier</a>
+				</button>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .container {
+            margin-top: 70px;
+            margin-bottom: 50px;
+        }
+        
+        .table {
+            background-color: #fff;
+            border: 2px solid #aaa;
+            border-radius : 10px;
+        }
+        
+        .table th,
+        .table td {
+            border: 2px solid #aaa;
+        }
+        
+        .btn-confirm {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+
+        h1 {
+            margin-left: 20px;
+        }
+
+        .btn-primary {
+            margin-left: 20px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Votre panier</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantite</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produit in panier %}
+
+                <tr>
+                    <td>{{ produit.nom }}</td>
+                    <td>{{ produit.prix }}</td>
+                    <td>{{ produit.quantite }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('confirm_panier') }}" class="btn btn-primary">Confirmer la commande</a>
+
+</div>
+
+{% endblock %}

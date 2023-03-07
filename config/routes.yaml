@@ -1,3 +1,17 @@
 controllers:
   resource: ../src/Controller/
   type: attribute
+
+panier:
+  path: /panier
+  controller: App\Controller\AcmeController::panier
+
+confirm_panier:
+  path: /panier/confirmation
+  controller: App\Controller\AcmeController::confirmationPanier
+
+not_found:
+  path: /{url}
+  controller: App\Controller\ErrorController::showNotFound
+  requirements:
+    url: ".+"

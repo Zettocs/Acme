@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <style>
+        body {
+            text-align: center;
+
+        }
+        img {
+            width: 60%;
+            margin-top: -5%
+        }
+        h1 {
+            text-transform: none;
+            margin-top: 3%;
+            color: #27476E
+        }
+    </style>
+    <body>
+        <h1>Hmmmmm Bizarre</h1>
+        <p>La page que vous chercher est introuvable</p>
+        <div class="test">
+            <img class="chaussures" src="{{ asset('images/404.png') }}" alt=" 404">
+        </div>
+
+    </body>
+{% endblock %}
